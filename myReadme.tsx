@@ -1,0 +1,2 @@
+getRefreshToken.tsx contains the function that goes to /api/users/getRefreshtoken to help in getting the user details always and especially upon page refresh, incase the user was authenticated.
+This happens if there's a cookie stored in the browser and which is sent together to the backend for verification and thereafter regeneration of the user data.

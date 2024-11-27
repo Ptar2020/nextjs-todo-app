@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+*/
+body {
+  margin:5px;
+} 
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68px;
+  height: 68px;
+  border: 7px solid;
+  border-color: #3b1e15 transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1.5s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+.link {
+  color: #1d4ed8; 
+  font-size: 14px; /* Set a readable font size */
+  font-weight: bold; /* Make the text bold */
+}
+
+.link:hover {
+  color: red;
+  
+}
+
+.button {
+  color: blue; /* Text color */
+  background-color: #efefef; /* Background color */
+  border: none; /* Remove default button borders */
+  border-radius: 15px; /*Make it circular */
+  padding: 5px 10px; /* Add padding for a better size */
+  font-size: 14px; /* Set a readable font size */
+  font-weight: bold; /* Make the text bold */
+  cursor: pointer; /* Show a pointer cursor on hover */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /*Add a subtle shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease; /*Smooth hover effects */
+}
+
+.button:hover {
+  color: red; /*  #d4d4d4; Slightly darker background on hover */
+ transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+
+.cont {
+  width: 100%;
+  padding-left: 15px; /* Bootstrap's default horizontal padding */
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 576px) {
+  .cont {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cont {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .cont {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cont {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .cont {
+    max-width: 1320px;
+  }
+}
