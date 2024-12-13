@@ -7,6 +7,7 @@ import { showErrorMsg, showSuccessMsg } from "@/app/_utils/Alert";
 import { useAuth } from "@/app/_utils/AuthProvider";
 import axios from "axios";
 import swal from "sweetalert";
+import { Metadata } from "next";
 
 type Item = {
   _id: string;
@@ -17,8 +18,18 @@ type Item = {
   amount: string;
 };
 
-const API_BASE = "/api/users/itemData";
+type Props = { //For defining the property you need from the dynamic route
+  params: {
+    _id: string
+  }
+}
 
+// export const generateMetadata = ({ params }: Props): Metadata => {
+//   return {
+//     title: `${params._id}`
+//   }
+// }
+const API_BASE = "/api/users/itemData";
 const User = () => {
   const { user, setUser } = useAuth();
   const router = useRouter();
@@ -636,6 +647,7 @@ export default User;
 // import { useAuth } from "@/app/_utils/AuthProvider";
 // import axios from "axios";
 // import swal from "sweetalert";
+import { generateMetadata } from './../../generateMetadata';
 
 // const User = () => {
 //   type Item = {

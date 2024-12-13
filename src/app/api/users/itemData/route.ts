@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { middleware } from "../../middleware";
 import { dbConnect } from "@/app/database/database";
 import Item from "@/app/_models/Item";

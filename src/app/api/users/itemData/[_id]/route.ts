@@ -10,7 +10,7 @@ export async function PATCH(
 ) {
   try {
     // Middleware check
-    const data = await middleware();
+    const data = await middleware(req);
     if (!data) {
       return new NextResponse(JSON.stringify({ msg: "Unauthorized access" }), {
         status: 401,
@@ -61,7 +61,7 @@ export async function DELETE(
 ) {
   try {
     // Middleware check
-    const data = await middleware();
+    const data = await middleware(req);
     if (!data) {
       return new NextResponse(JSON.stringify({ msg: "Unauthorized access" }), {
         status: 401,
@@ -72,7 +72,7 @@ export async function DELETE(
     await dbConnect();
 
     // Find the item to delete by ID
-    const itemToDelete = await Item.findOne({ _id: params._id });console.log(itemToDelete)
+    const itemToDelete = await Item.findById(params._id);
     if (!itemToDelete) {
       return new NextResponse(JSON.stringify({ msg: "Item does not exist" }), {
         status: 404,
@@ -94,3 +94,45 @@ export async function DELETE(
     });
   }
 }
+
+
+
+// export async function DELETE(
+//   req: NextRequest,
+//   { params }: { params: { _id: string } }
+// ) {
+//   try {
+//     // Middleware check
+//     const data = await middleware(req);
+//     if (!data) {
+//       return new NextResponse(JSON.stringify({ msg: "Unauthorized access" }), {
+//         status: 401,
+//       });
+//     }
+
+//     // DB connection
+//     await dbConnect();
+
+//     // Find the item to delete by ID
+//     const itemToDelete = await Item.findOne({ _id: params._id });console.log(itemToDelete)
+//     if (!itemToDelete) {
+//       return new NextResponse(JSON.stringify({ msg: "Item does not exist" }), {
+//         status: 404,
+//       });
+//     }
+
+//     // Delete the item
+//     await itemToDelete.deleteOne();
+
+//     // Return success message
+//     return new NextResponse(
+//       JSON.stringify({ success: "Item deleted" }),
+//       { status: 200 }
+//     );
+//   } catch (err) {
+//     // Return error message
+//     return new NextResponse(JSON.stringify({ msg: err.message }), {
+//       status: 500,
+//     });
+//   }
+// }

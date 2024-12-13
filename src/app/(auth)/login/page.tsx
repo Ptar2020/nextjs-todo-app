@@ -54,7 +54,7 @@ const Login = () => {
     if(user){
       router.push(`/user/${user._id}`);
     }
-  }, []); 
+  }, [router, user]); 
 
   return (
     <div className="flex items-center justify-center min-h-screen">

@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
+
 // Utility function to extract cookies from the request
 const extractCookies = () => {
   const allCookies = cookies().toString().split(";");
